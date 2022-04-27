@@ -15,11 +15,11 @@ filetype off
 """"""""""""""""""""""""""""""""""""""""""
 "" plugins base functions
 """"""""""""""""""""""""""""""""""""""""""
-Plug 'L9'
-Plug 'cecutil'
-Plug 'tlib'
-Plug 'genutils'
-Plug 'DfrankUtil'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/cecutil'
+Plug 'vim-scripts/tlib'
+Plug 'vim-scripts/genutils'
+Plug 'vim-scripts/DfrankUtil'
 
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -28,7 +28,7 @@ Plug 'DfrankUtil'
 " -- add repeat.vim to make (.) works for cs,ds,ys
 Plug 'tpope/vim-repeat' 
 Plug 'tpope/vim-surround'
-Plug 'matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 Plug 'Lokaltog/vim-easymotion'
 
 "Plug 'Align'
@@ -53,11 +53,11 @@ Plug 'mhinz/vim-grepper'
 Plug 'ervandew/supertab'
 "YCM can replace others
 "Plug 'Valloric/YouCompleteMe'
-Plug 'AutoComplPop'
+Plug 'vim-scripts/AutoComplPop'
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'CmdlineComplete'
+Plug 'vim-scripts/CmdlineComplete'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -70,16 +70,16 @@ Plug 'mattn/emmet-vim'
 ""Plugin 'ZenCoding.vim'
 "" more powerful than zencoding written in python
 "Plug "rstacruz/sparkup" {'rtp' : 'vim/'}
-Plug 'word_complete.vim'
+Plug 'vim-scripts/word_complete.vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""
 "" for filetype 
 """"""""""""""""""""""""""""""""""""""""""
-Plug 'c.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'xml.vim'
-Plug 'JSON.vim'
+Plug 'vim-scripts/c.vim'
+Plug 'vim-scripts/plasticboy/vim-markdown'
+Plug 'vim-scripts/xml.vim'
+Plug 'vim-scripts/JSON.vim'
 Plug 'fatih/vim-go'
 "android development plugin for vim 
 "
@@ -105,13 +105,13 @@ Plug 'Shougo/vimproc', {
 Plug 'spf13/PIV'
 
 "" -- web
-Plug 'JavaScript-Indent'
-Plug 'vim-less'
+Plug 'vim-scripts/JavaScript-Indent'
+Plug 'vim-scripts/vim-less'
 Plug 'kchmck/vim-coffee-script'
 "Plug 'jslint.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'haml.zip'
-Plug 'jsbeautify'
+Plug 'vim-scripts/haml.zip'
+Plug 'vim-scripts/jsbeautify'
 
 "" -- php
 "Plug 'tagbar-phpctags'
@@ -119,7 +119,7 @@ Plug 'jsbeautify'
 "" -- python
 "Plug 'vim-django'
 ""Plugin 'kevinw/pyflakes-vim'
-Plug 'indentpython.vim'
+Plug 'vim-scripts/indentpython.vim'
 
 
 
@@ -129,10 +129,10 @@ Plug 'indentpython.vim'
 """"""""""""""""""""""""""""""""""""""""""
 "NeoBundle 'UltraBlog'
 " -- edit encrypted files
-Plug 'openssl.vim'
-Plug 'calendar.vim'
+Plug 'vim-scripts/openssl.vim'
+Plug 'vim-scripts/calendar.vim'
 "Plug 'vimwiki'
-Plug 'TxtBrowser'
+Plug 'vim-scripts/TxtBrowser'
 
 
 """"""""""""""""""""""""""""""""""""""""""
@@ -149,8 +149,8 @@ Plug 'xolox/vim-misc'
 
 "Plug 'chazy/cscope_maps'
 "Plug 'camelcasemotion'
-Plug 'FencView.vim'
-Plug 'vcscommand.vim'
+Plug 'vim-scripts/FencView.vim'
+Plug 'vim-scripts/vcscommand.vim'
 Plug 'tpope/vim-fugitive'
 "括号显示增强
 Plug 'masukomi/rainbow_parentheses.vim'
@@ -163,7 +163,7 @@ Plug 'metakirby5/codi.vim'
 "" comment, doxygen {{{
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdcommenter'
-Plug 'DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'tobyS/vmustache'
 Plug 'tobyS/pdv'
 "" }}}
@@ -173,36 +173,27 @@ Plug 'tobyS/pdv'
 "" for vim native settings
 """"""""""""""""""""""""""""""""""""""""""
 Plug 'Lokaltog/vim-powerline'
-Plug 'Vimball'
+Plug 'vim-scripts/Vimball'
 
 
 """"""""""""""""""""""""""""""""""""""""""
 "" for file management and  orgnization
 """"""""""""""""""""""""""""""""""""""""""
-Plug 'netrw.vim'
+Plug 'vim-scripts/netrw.vim'
 " -- user ctrlp to replace FuzzyFinder
-<<<<<<< HEAD
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'FuzzyFinder'
-
-"NeoBundle 'Command-T'
-NeoBundle 'scrooloose/nerdtree'
-"NeoBundle 'ryanoasis/vim-devicons'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-"NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'danro/rename.vim'
-=======
 Plug 'kien/ctrlp.vim'
-Plug 'FuzzyFinder'
+Plug 'vim-scripts/FuzzyFinder'
 
-"Plug 'Command-T'
+"Plug 'vim-scripts/Command-T'
 Plug 'scrooloose/nerdtree'
 Plug 'danro/rename.vim'
->>>>>>> e1d7cee590e6fcaf8fc9e54b6309c99055cde4c4
+Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'danro/rename.vim'
 
 "project
 Plug 'reedboat/project.tar.gz'
-Plug 'Proj'
+Plug 'vim-scripts/Proj'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " test

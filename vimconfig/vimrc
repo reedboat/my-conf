@@ -31,8 +31,8 @@ source $HOME/.vim/abbreviation.vim
 " color scheme
 "set background=dark
 "set background=light
-color solarized
-"color molokai
+"color solarized
+color desert
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " local
