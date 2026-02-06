@@ -47,7 +47,7 @@ plugins=(git autojump)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/Cellar/php/5.3.10/bin/:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder:/Applications/SenchaSDKTools-2.0.0-Beta/bin:/Applications/SenchaSDKTools-2.0.0-Beta:/Users/zhqm03/bin:/Users/zhqm03/local/bin:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder:/Applications/SenchaSDKTools-2.0.0-Beta/bin:/Applications/SenchaSDKTools-2.0.0-Beta:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/zhqm03/workspace/android-sdk/tools:/Users/zhqm03/workspace/android-sdk/platform-tools:/Users/zhqm03/bin:/Users/zhqm03/workspace/android-sdk/tools:/Users/zhqm03/workspace/android-sdk/platform-tools
+export PATH=$PATH:/opt/homebrew/bin/:/usr/local/Cellar/php/5.3.10/bin/:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder:/Applications/SenchaSDKTools-2.0.0-Beta/bin:/Applications/SenchaSDKTools-2.0.0-Beta:/Users/zhqm03/bin:/Users/zhqm03/local/bin:/Applications/SenchaSDKTools-2.0.0-Beta/jsbuilder:/Applications/SenchaSDKTools-2.0.0-Beta/bin:/Applications/SenchaSDKTools-2.0.0-Beta:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/zhqm03/workspace/android-sdk/tools:/Users/zhqm03/workspace/android-sdk/platform-tools:/Users/zhqm03/bin:/Users/zhqm03/workspace/android-sdk/tools:/Users/zhqm03/workspace/android-sdk/platform-tools
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 
@@ -63,3 +63,37 @@ then
     . ~/.bash_profile
 fi
 export CLICOLOR=1
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+export GEMINI_API_KEY="AIzaSyAk7etmrZnQxi9D3tARPy4kM4lxoEHjsMA"
+
+export GOPATH=$HOME/go
+# 对于 Apple Silicon Mac (M1/M2 芯片)，GOROOT 可能是 /opt/homebrew/lib/go 或 /opt/homebrew/opt/go/libexec
+export GOROOT=/opt/homebrew/opt/go/libexec
+# 对于 Intel Mac，GOROOT 可能是 /usr/local/lib/go 或 /usr/local/opt/go/libexec[1](@ref)
+# export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
+# pnpm
+export PNPM_HOME="/Users/kufazhang/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+# Added by CodeBuddy CN
+export PATH="/Users/kufazhang/.codebuddy/bin:$PATH"
+
+
+# Added by CodeBuddy
+export PATH="/Users/kufazhang/.codebuddy/bin:$PATH"
+export PATH="$PATH:$HOME/.ft"
+source ~/.env
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+export ENABLE_LSP_TOOL=1
+
+# OpenClaw Completion
+source <(openclaw completion --shell zsh)
+
+export PATH="/Users/kufazhang/background_agent_cli/bin:$PATH" # background_agent_cli PATH

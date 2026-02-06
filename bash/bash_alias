@@ -1,15 +1,14 @@
 # vim related
 alias v='vim'
-alias vp='vim -S project.vim'
-alias vimp='vim -S project.vim'
-alias sv='sudo vim'
 
 alias py='python'
 alias ipy='ipython'
 alias sl='screen -ls'
 alias sr='screen -D -R'
-alias curlnp="curl --proxy ''"
-alias psg='ps -ef|egrep -v "grep"|grep'
+
+# agent browser
+alias pwtest='npx playwright test'
+alias agb='agent-browser'
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -18,21 +17,13 @@ alias .4="cd ../../../.."
 
 alias ll='ls -al'
 
-alias aliyun='ssh reedboat@www.hiweiye.com'
 alias cs='vim ~/cheatsheet.md'
 
 alias iconvgu='iconv -f gbk -t utf-8'  #两种类型编码转换
 alias iconvug='iconv -f utf-8 -t gbk'
 
-alias tf='tail -f'  #动态查看文件变化
 alias t100='tail -n 100'
 alias pong='ping -c 5 '   #ping，限制
-alias myip='ifconfig|grep "inet "|grep -v 127.0.0.1|cut -d" " -f2'
-
-alias cpzt="cp -t ~/workspace/transfer"
-
-alias apti='sudo apt-get install'
-alias apts='apt-cache search'
 
 alias mkdir="mkdir -pv"
 alias df="df -h"
@@ -56,20 +47,14 @@ alias gsd='git svn dcommit'
 alias gsl='git svn log|less'
 alias gar='git archive --format="tar.gz" -o'
 
-# php
-alias 'pu'='phpunit'
-alias 'puf'='phpunit --filter'
-alias 'ph'='phing'
-
 # tmux
 alias ta="tmux attach"
 
 # mysql alias
-alias m="mysql -uroot -p"
 
-# telnet
-alias tn="telnet"
-alias tnl="telnet 127.0.0.1"
+# codebuddy
+alias cbc=codebuddy
+alias cbr='codebuddy -r'
 
 used(){
     if [ $1 ]

@@ -13,6 +13,7 @@ export LANG='en_US.UTF-8'
 
 export EDITOR='vim'
 export SVN_EDITOR=vim
+export VENUS_OPENAI_API_KEY=dyBg5hblRpLtqvGCygnPu4pY@3927
 
 if [[ -z "$ZSH" ]]
 then
@@ -66,7 +67,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
     platform="osx"
 fi
 
-export PATH=~/.composer/vendor/bin:~/bin:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=$PATH:~/.composer/vendor/bin:~/bin:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 #export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 #export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting 
 #
@@ -85,3 +86,6 @@ export PATH=~/.composer/vendor/bin:~/bin:~/local/bin:/usr/local/bin:/usr/local/s
 #    . ~/.bash_local
 #fi
 export PATH=/usr/local/bin:$PATH
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
