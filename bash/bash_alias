@@ -53,8 +53,10 @@ alias ta="tmux attach"
 # mysql alias
 
 # codebuddy
-alias cbc=codebuddy
+alias cbc='codebuddy -y'
 alias cbr='codebuddy -r'
+alias nskc='npx skills add -a codebuddy -g -y'
+alias nskf='npx skills find'
 
 used(){
     if [ $1 ]

@@ -198,7 +198,7 @@ Plug 'vim-scripts/Proj'
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " test
 """"""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'kakkyz81/evervim'
+"Plug 'kakkyz81/evervim' " Requires python support
 " 快速启用/禁用 箭头/hjkl/pageuppagedown/
 "Plug 'wikitopian/hardmode' 
 Plug 'takac/vim-hardtime' 

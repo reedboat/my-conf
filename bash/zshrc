@@ -94,6 +94,21 @@ export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export ENABLE_LSP_TOOL=1
 
 # OpenClaw Completion
-source <(openclaw completion --shell zsh)
+#source <(openclaw completion --shell zsh)
 
 export PATH="/Users/kufazhang/background_agent_cli/bin:$PATH" # background_agent_cli PATH
+
+# bun completions
+[ -s "/Users/kufazhang/.bun/_bun" ] && source "/Users/kufazhang/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# 覆盖 oh-my-zsh git 插件的 gf 别名，释放 gf 给 CodeBuddy CLI 使用
+unalias gf 2>/dev/null
+alias gfetch='git fetch'
+
+# Neovim alias
+alias vim='nvim'
+alias vi='nvim'
