@@ -133,4 +133,10 @@ eval "$(zoxide init zsh --cmd j)"
 eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export CMS_AUTHORIZATION="Bearer tai_pat_NX65UavNsh828dRK4BKagTXwPfjons7qhacLD44FoU4.Ybk_llYDnJXnSxXH_sw1WJIwbZ7xoIrEIWV-GTd6zoo"
+
+# chezmoi / 用户本地 bin
+export PATH="$HOME/.local/bin:$PATH"
+
+# 注意：敏感 token（如 CMS_AUTHORIZATION）请勿硬编码在此文件中
+# 建议放入 ~/.env.local 并在此 source，该文件不纳入版本控制
+# [ -f ~/.env.local ] && source ~/.env.local
