@@ -64,7 +64,7 @@ then
 fi
 export CLICOLOR=1
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
-export GEMINI_API_KEY="AIzaSyAk7etmrZnQxi9D3tARPy4kM4lxoEHjsMA"
+# GEMINI_API_KEY 已移至 ~/.env.local（不提交到 git）
 
 export GOPATH=$HOME/go
 # 对于 Apple Silicon Mac (M1/M2 芯片)，GOROOT 可能是 /opt/homebrew/lib/go 或 /opt/homebrew/opt/go/libexec
@@ -137,6 +137,5 @@ eval "$(starship init zsh)"
 # chezmoi / 用户本地 bin
 export PATH="$HOME/.local/bin:$PATH"
 
-# 注意：敏感 token（如 CMS_AUTHORIZATION）请勿硬编码在此文件中
-# 建议放入 ~/.env.local 并在此 source，该文件不纳入版本控制
-# [ -f ~/.env.local ] && source ~/.env.local
+# 敏感 token 从 ~/.env.local 加载（不提交到 git）
+[ -f ~/.env.local ] && source ~/.env.local

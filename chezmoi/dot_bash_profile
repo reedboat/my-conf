@@ -13,7 +13,7 @@ export LANG='en_US.UTF-8'
 
 export EDITOR='vim'
 export SVN_EDITOR=vim
-export VENUS_OPENAI_API_KEY=dyBg5hblRpLtqvGCygnPu4pY@3927
+# VENUS_OPENAI_API_KEY 已移至 ~/.env.local（不提交到 git）
 
 if [[ -z "$ZSH" ]]
 then
