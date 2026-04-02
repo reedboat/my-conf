@@ -1,0 +1,10 @@
+.hg
+.svn
+.DS_Store
+*.sw[a-z]
+*.pyc
+*.tmp
+*~
+.netrwhist
+Powerline_distinguished_distinguished_compatible.cache
+#git config --global core.excludesfile ~/.gitignore_global

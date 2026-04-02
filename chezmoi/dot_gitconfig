@@ -1,0 +1,70 @@
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+;[color "branch"]
+    ;current = yellow reverse
+    ;local = yellow
+    ;remote = green
+;[color "diff"]
+    ;meta = yellow bold
+    ;frag = magenta bold
+    ;old = red bold
+    ;new = green bold
+;[color "status"]
+    ;added = yellow
+    ;changed = green
+    ;untracked = cyan
+
+
+[color]
+    ui = true
+[color "diff"]
+    whitespace = red reverse
+[core]
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol     
+    autocrlf = input
+	quotepath = false
+	pager = more
+[apply]
+    whitespace = nowarn
+
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    da = diff HEAD
+    ds = diff --staged
+    lf = log --oneline --no-merges --
+    rh = reset HEAD
+    gp = log --date=\"short\" --format=\"%C(yellow)%h%Creset [%cN] %C(white)%ad%Creset %s\" --graph
+    lp = log -p
+    wt = worktree
+    wta = worktree add
+    wtr = worktree remove
+
+[user]
+	name = kufazhang
+	email = kufazhang@tencent.com
+[push]
+    default = matching
+[ampify]
+    branch-build = true
+
+
+[url "git@git.code.oa.com:"]
+    insteadOf = https://git.code.oa.com/
+    insteadOf = http://git.code.oa.com/
+[url "git@git.woa.com:"]
+    insteadOf = https://git.woa.com/
+    insteadOf = http://git.woa.com/
+[pager]
+	log = true
+[safe]
+	directory = *
+	directory = /Users/kufazhang

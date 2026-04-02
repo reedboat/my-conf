@@ -1,0 +1,73 @@
+# vim related
+alias v='vim'
+
+alias py='python'
+alias ipy='ipython'
+alias sl='screen -ls'
+alias sr='screen -D -R'
+
+# agent browser
+alias pwtest='npx playwright test'
+alias agb='agent-browser'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .4="cd ../../../.."
+
+alias ll='ls -al'
+
+alias cs='vim ~/cheatsheet.md'
+
+alias iconvgu='iconv -f gbk -t utf-8'  #两种类型编码转换
+alias iconvug='iconv -f utf-8 -t gbk'
+
+alias t100='tail -n 100'
+alias pong='ping -c 5 '   #ping，限制
+
+alias mkdir="mkdir -pv"
+alias df="df -h"
+alias free='free -m'
+alias bc='bc -l'
+
+# git alias
+alias ga='git add '
+alias gau='git add -u'
+alias gc='git commit -m'
+alias gca='git commit --amend'
+alias gs='git status'
+alias gss='git status -s'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"
+alias gd='git diff'
+alias grh='git reset HEAD'
+alias gco='git checkout --'
+alias gdc='git diff --cached'
+alias gsr='git svn rebase'
+alias gsd='git svn dcommit'
+alias gsl='git svn log|less'
+alias gar='git archive --format="tar.gz" -o'
+
+# tmux
+alias ta="tmux attach"
+
+# mysql alias
+
+# codebuddy
+alias cby='codebuddy -y'
+alias cbr='codebuddy -r'
+alias claude=codebuddy
+
+alias nskc='npx skills add -a codebuddy -g -y'
+alias nskf='npx skills find'
+
+used(){
+    if [ $1 ]
+    then
+        history | awk '{print $2,$3,$4}' | sort | uniq -c | sort -nr | head -n $1
+    else
+        history | awk '{print $2,$3,$4}' | sort | uniq -c | sort -nr | head -n 10
+    fi
+}
+
+goto(){ [ -d "$1" ] && cd "$1" || cd "$(dirname "$1")"; } 
+
