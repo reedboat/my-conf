@@ -1,0 +1,22 @@
+[mgr]
+prepend_keymap = [
+  # Ctrl+g：用 glow 分页预览当前 Markdown 文件
+  { on = "<C-g>", run = 'shell "glow -p \"$1\""', block = true, desc = "Glow preview" },
+
+  # DuckDB 水平滚动
+  { on = "H", run = "plugin duckdb -1",     desc = "Scroll one column to the left" },
+  { on = "L", run = "plugin duckdb +1",     desc = "Scroll one column to the right" },
+  # DuckDB 打开
+  { on = ["g", "o"], run = "plugin duckdb -open", desc = "Open with duckdb" },
+  { on = ["g", "u"], run = "plugin duckdb -ui",   desc = "Open with duckdb ui" },
+
+  # 书签：m 标记当前目录，' 跳转到书签
+  { on = "m", run = "plugin bookmarks save", desc = "Save bookmark" },
+  { on = "'", run = "plugin bookmarks jump", desc = "Jump to bookmark" },
+  { on = ["b", "d"], run = "plugin bookmarks delete",     desc = "Delete bookmark" },
+  { on = ["b", "D"], run = "plugin bookmarks delete_all", desc = "Delete all bookmarks" },
+
+  # 预览滚动：[ 上滚，] 下滚
+  { on = "[", run = "seek -10", desc = "Seek up 10 lines in preview" },
+  { on = "]", run = "seek 10",  desc = "Seek down 10 lines in preview" },
+]

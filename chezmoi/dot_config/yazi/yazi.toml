@@ -1,0 +1,45 @@
+[opener]
+glow = [
+  { run = 'glow --tui %s', block = true, for = "unix" }
+]
+duckdb = [
+  { run = "f=%s; stem=$(basename \"$f\" | sed 's/\\.[^.]*$//'); duckdb -no-init -cmd \"CREATE TABLE \\\"$stem\\\" AS FROM read_csv('$f');\"", block = true, desc = "DuckDB TUI", for = "unix" }
+]
+edit = [
+  { run = '$EDITOR %s', block = true, desc = "Edit in $EDITOR", for = "unix" }
+]
+vim = [
+  { run = 'vim %s', block = true, desc = "Vim", for = "unix" }
+]
+
+[open]
+prepend_rules = [
+  { url = "*.md",      use = ["glow", "vim"] },
+  { url = "*.csv",     use = ["duckdb", "vim"] },
+  { url = "*.tsv",     use = ["duckdb", "vim"] },
+  { url = "*.parquet", use = "duckdb" },
+  { url = "*.json",    use = ["duckdb", "vim"] },
+  { url = "*.db",      use = "duckdb" },
+  { url = "*.duckdb",  use = "duckdb" },
+]
+
+[plugin]
+prepend_previewers = [
+  { url = "*.csv",     run = "duckdb" },
+  { url = "*.tsv",     run = "duckdb" },
+  { url = "*.json",    run = "duckdb" },
+  { url = "*.parquet", run = "duckdb" },
+  { url = "*.xlsx",    run = "duckdb" },
+  { url = "*.db",      run = "duckdb" },
+  { url = "*.duckdb",  run = "duckdb" },
+]
+prepend_preloaders = [
+  { url = "*.csv",     run = "duckdb", multi = false },
+  { url = "*.tsv",     run = "duckdb", multi = false },
+  { url = "*.json",    run = "duckdb", multi = false },
+  { url = "*.parquet", run = "duckdb", multi = false },
+  { url = "*.xlsx",    run = "duckdb", multi = false },
+]
+
+[mgr]
+ratio = [1, 2, 5]
