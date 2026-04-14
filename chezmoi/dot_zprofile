@@ -1,2 +1,3 @@
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# ~/.zprofile — macOS zsh 登录 shell
+# Homebrew 初始化（已移到 .zshrc 统一管理，此文件保留为空）

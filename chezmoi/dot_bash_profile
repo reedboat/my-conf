@@ -1,95 +1,21 @@
-export EDITOR=vim
-export PAGER='less'
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib
+# ~/.bash_profile — Linux CVM bash 登录 shell 配置
 
-#export JAVA_HOME=/home/reedboat/java/current
-#export JRE_HOME=${JAVA_HOME}/jre
-#export CLASSPATH=$HADOOP_HOME/lib:$JAVA_HOME/lib:$JRE_HOME/lib
+# ── 共享通用配置 ──
+for f in "$HOME/.shell_shared"/{env,paths,aliases,functions}.sh; do
+  [ -f "$f" ] && source "$f"
+done
 
-export HOSTSHORT=`hostname`
-export OS=`uname`;
-export LC_ALL='en_US.UTF-8'
-export LANG='en_US.UTF-8'
-
-export EDITOR='vim'
-export SVN_EDITOR=vim
-# VENUS_OPENAI_API_KEY 已移至 ~/.env.local（不提交到 git）
-
-if [[ -z "$ZSH" ]]
-then
-    if [ "$PS1" ]
-    then
-        if [ -f /etc/bash_completion ]
-        then
-            if [ -r /etc/bash_completion ]
-            then
-                . /etc/bash_completion
-            fi
-        fi
-    fi
+# ── 平台特有配置 ──
+if [[ "$platform" == "linux" ]]; then
+  [ -f "$HOME/.shell_shared/platform/linux.sh" ] && source "$HOME/.shell_shared/platform/linux.sh"
+elif [[ "$platform" == "osx" ]]; then
+  [ -f "$HOME/.shell_shared/platform/darwin.sh" ] && source "$HOME/.shell_shared/platform/darwin.sh"
 fi
 
-if [ -f ~/.markrc ]; then
-        . ~/.markrc
+# ── bash completion ──
+if [ -f /etc/bash_completion ] && [ -r /etc/bash_completion ]; then
+  . /etc/bash_completion
 fi
 
-
-function run_cmd_with_password {
-    expect -c "\
-    set timeout 90
-    set env(TERM)
-    spawn $1
-    expect \"password:\"
-    send $2\r
-    expect eof
-  "
-}
-
-function interact_cmd_with_password 
-{
-    expect -c "\
-    set timeout 90
-    set env(TERM)
-    spawn $1
-    expect \"password:\"
-    send $2\r
-    interact
-  "
-}
-
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-    platform='linux'
-elif [[ "$unamestr" == 'FreeBSD' ]]; then
-    platform='freebsd'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-    platform="osx"
-fi
-
-export PATH=$PATH:~/.composer/vendor/bin:~/bin:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-#export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-#export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting 
-#
-#if [[ "$platform" == "osx" ]];then
-#    export PATH=/Applications/MacVim.app/Contents/MacOS:$PATH
-#    export PATH="$(brew --prefix josegonzalez/php/php55)/bin:$PATH"
-#    alias service="brew services"
-#    export PATH=$PATH:/Users/zhqm03/apps/adt/sdk/tools:/Users/zhqm03/apps/adt/sdk/platform-tools
-#    export PATH=/usr/local/share/npm/bin:$PATH
-#fi
-#export GOPATH=~/workspace/gocode
-#
-#
-## 本机的配置,不想提交到其他环境
-#if [ -f ~/.bash_local ]; then
-#    . ~/.bash_local
-#fi
-export PATH=/usr/local/bin:$PATH
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
-	export PATH="$HOME/.local/bin:$PATH"
-fi
+# ── source bashrc（交互式子 shell）──
+[ -f ~/.bashrc ] && source ~/.bashrc

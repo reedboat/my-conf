@@ -1,8 +1,25 @@
-export PATH="$PATH:$HOME/.ft"
-source ~/.env
+# ~/.bashrc — Linux CVM bash 专用配置
 
-if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
-	export PATH="$HOME/.local/bin:$PATH"
+# ── 共享通用配置 ──
+for f in "$HOME/.shell_shared"/{env,paths,aliases,functions}.sh; do
+  [ -f "$f" ] && source "$f"
+done
+
+# ── 平台特有配置 ──
+if [[ "$platform" == "linux" ]]; then
+  [ -f "$HOME/.shell_shared/platform/linux.sh" ] && source "$HOME/.shell_shared/platform/linux.sh"
+elif [[ "$platform" == "osx" ]]; then
+  [ -f "$HOME/.shell_shared/platform/darwin.sh" ] && source "$HOME/.shell_shared/platform/darwin.sh"
 fi
 
+# ── bash completion ──
+if [ -f /etc/bash_completion ] && [ -r /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+# ── fzf ──
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# ── 本地环境变量（不提交 git）──
+[ -f ~/.env ] && source ~/.env
+[ -f ~/.env.local ] && source ~/.env.local
