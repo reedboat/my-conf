@@ -3,6 +3,15 @@
 export PAGER='less'
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
+export GIT_PAGER='less'
+export VOLTA_HOME="$HOME/.volta"
+export VOLTA_FEATURE_PNPM=1
+export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+export TESTCONTAINERS_HOST_OVERRIDE=127.0.0.1
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export TESTCONTAINERS_RYUK_DISABLED=true
+export yazi_config_home="$HOME/.config/yazi"
+export CODEBUDDY_INTERNET_ENVIRONMENT=ioa
 
 # ── 编辑器：优先 nvim，回退 vim ──
 if command -v nvim &>/dev/null; then

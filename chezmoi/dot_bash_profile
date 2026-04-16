@@ -1,21 +1,3 @@
-# ~/.bash_profile — Linux CVM bash 登录 shell 配置
+# ~/.bash_profile — bash 登录 shell 配置
 
-# ── 共享通用配置 ──
-for f in "$HOME/.shell_shared"/{env,paths,aliases,functions}.sh; do
-  [ -f "$f" ] && source "$f"
-done
-
-# ── 平台特有配置 ──
-if [[ "$platform" == "linux" ]]; then
-  [ -f "$HOME/.shell_shared/platform/linux.sh" ] && source "$HOME/.shell_shared/platform/linux.sh"
-elif [[ "$platform" == "osx" ]]; then
-  [ -f "$HOME/.shell_shared/platform/darwin.sh" ] && source "$HOME/.shell_shared/platform/darwin.sh"
-fi
-
-# ── bash completion ──
-if [ -f /etc/bash_completion ] && [ -r /etc/bash_completion ]; then
-  . /etc/bash_completion
-fi
-
-# ── source bashrc（交互式子 shell）──
 [ -f ~/.bashrc ] && source ~/.bashrc

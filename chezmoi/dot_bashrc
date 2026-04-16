@@ -23,3 +23,16 @@ fi
 # ── 本地环境变量（不提交 git）──
 [ -f ~/.env ] && source ~/.env
 [ -f ~/.env.local ] && source ~/.env.local
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
+
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
+if command -v starship &>/dev/null; then
+  eval "$(starship init bash)"
+fi

@@ -24,6 +24,12 @@ if command -v ipython &>/dev/null; then
   alias ipy='ipython'
 fi
 
+# ── lazygit（仅存在时生效）──
+if command -v lazygit &>/dev/null; then
+  alias lg='lazygit'
+  alias g='lazygit'
+fi
+
 # ── screen / tmux ──
 alias sl='screen -ls'
 alias sr='screen -D -R'
@@ -31,6 +37,7 @@ if command -v tmux &>/dev/null; then
   alias t="tmux"
   alias ta="tmux attach -t"
   alias tad="tmux attach -d -t"
+  alias tdc="tmux devcvm"
   alias ts="tmux new-session -s"
   alias tl="tmux list-sessions"
   alias tk="tmux kill-session -t"
@@ -79,6 +86,9 @@ fi
 if [ -f ~/cheatsheet.md ]; then
   alias cs='vim ~/cheatsheet.md'
 fi
+
+# ── SSH ──
+alias scvm='ssh cvm'
 
 # ── chezmoi ──
 if command -v chezmoi &>/dev/null; then

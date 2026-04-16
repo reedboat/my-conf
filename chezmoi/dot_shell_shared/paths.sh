@@ -5,6 +5,11 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Volta
+if [[ -n "$VOLTA_HOME" && ":$PATH:" != *":$VOLTA_HOME/bin:"* ]]; then
+  export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+
 # ~/.ft
 if [[ -d "$HOME/.ft" ]]; then
   export PATH="$PATH:$HOME/.ft"

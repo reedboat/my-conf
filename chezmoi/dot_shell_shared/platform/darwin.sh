@@ -21,7 +21,6 @@ esac
 # ── bun ──
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # ── CodeBuddy ──
 export PATH="$HOME/.codebuddy/bin:$PATH"
@@ -45,12 +44,28 @@ alias nskf='npx skills find'
 alias pwtest='npx playwright test'
 alias agb='agent-browser'
 
-# ── zoxide ──
-if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init ${SHELL##*/} --cmd j)"
+# ── Modern CLI replacements ──
+if command -v bat &>/dev/null; then
+  alias cat='bat --paging=never'
 fi
-
-# ── Starship prompt ──
-if command -v starship &>/dev/null; then
-  eval "$(starship init ${SHELL##*/})"
+if command -v eza &>/dev/null; then
+  alias ls='eza --icons'
+  alias ll='eza -l --icons --git'
+  alias la='eza -la --icons --git'
+  alias lt='eza -T --icons --level=2'
+fi
+if command -v fd &>/dev/null; then
+  alias find='fd'
+fi
+if command -v dust &>/dev/null; then
+  alias du='dust'
+fi
+if command -v duf &>/dev/null; then
+  alias df='duf'
+fi
+if command -v procs &>/dev/null; then
+  alias ps='procs'
+fi
+if command -v btm &>/dev/null; then
+  alias top='btm'
 fi

@@ -1,15 +1,22 @@
-# conf.d/01_paths.fish — 通用 PATH 设置（来自 ~/.shell_shared/paths.sh）
-
-# ~/.local/bin
-fish_add_path --global --move $HOME/.local/bin
-
-# ~/.ft
-if test -d $HOME/.ft
-    fish_add_path --global $HOME/.ft
+if not contains -- "$HOME/.local/bin" $PATH
+    set -gx PATH "$HOME/.local/bin" $PATH
 end
 
-# Go
-if command -q go
-    set -gx GOPATH $HOME/go
-    fish_add_path --global $GOPATH/bin
+if set -q VOLTA_HOME
+    if not contains -- "$VOLTA_HOME/bin" $PATH
+        set -gx PATH "$VOLTA_HOME/bin" $PATH
+    end
+end
+
+if test -d "$HOME/.ft"
+    if not contains -- "$HOME/.ft" $PATH
+        set -gx PATH $PATH "$HOME/.ft"
+    end
+end
+
+if type -q go
+    set -gx GOPATH "$HOME/go"
+    if not contains -- "$GOPATH/bin" $PATH
+        set -gx PATH $PATH "$GOPATH/bin"
+    end
 end
