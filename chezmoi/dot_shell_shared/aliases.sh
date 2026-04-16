@@ -28,7 +28,13 @@ fi
 alias sl='screen -ls'
 alias sr='screen -D -R'
 if command -v tmux &>/dev/null; then
-  alias ta="tmux attach"
+  alias t="tmux"
+  alias ta="tmux attach -t"
+  alias tad="tmux attach -d -t"
+  alias ts="tmux new-session -s"
+  alias tl="tmux list-sessions"
+  alias tk="tmux kill-session -t"
+  alias tka="tmux kill-server"
 fi
 
 # ── 编码转换 ──
@@ -72,4 +78,20 @@ fi
 # ── cheatsheet（仅文件存在时）──
 if [ -f ~/cheatsheet.md ]; then
   alias cs='vim ~/cheatsheet.md'
+fi
+
+# ── chezmoi ──
+if command -v chezmoi &>/dev/null; then
+  alias cz='chezmoi'
+  alias cza='chezmoi add'
+  alias cze='chezmoi edit'
+  alias czd='chezmoi diff'
+  alias czap='chezmoi apply'
+  alias czcd='cd $(chezmoi source-path)'
+fi
+
+# ── atuin ──
+if command -v atuin &>/dev/null; then
+  alias ats='atuin search'
+  alias atsync='atuin sync'
 fi

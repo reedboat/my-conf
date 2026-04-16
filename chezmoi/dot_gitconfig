@@ -27,7 +27,7 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol     
     autocrlf = input
 	quotepath = false
-	pager = more
+	pager = delta
 [apply]
     whitespace = nowarn
 
@@ -68,3 +68,25 @@
 [safe]
 	directory = *
 	directory = /Users/kufazhang
+	directory = /Users/kufazhang/workspace/tcms
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	syntax-theme = Dracula
+	file-decoration-style = blue ol
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = bold
+	hunk-header-line-number-style = bold cyan
+	line-numbers-left-style = cyan
+	line-numbers-right-style = cyan
+	line-numbers-minus-style = red
+	line-numbers-plus-style = green
+	minus-style = red
+	plus-style = green
+	zero-style = dim
+	max-line-distance = 0.6
+[merge]
+	conflictStyle = zdiff3
