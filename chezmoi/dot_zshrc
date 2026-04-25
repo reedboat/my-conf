@@ -68,9 +68,11 @@ export FZF_ALT_C_OPTS="
 
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh --disable-up-arrow)"
+# ── atuin ──
+if [ -f "$HOME/.atuin/bin/env" ]; then
+  . "$HOME/.atuin/bin/env"
+  command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
+fi
 
 # ── zoxide (cd replacement) ──
 if command -v zoxide &>/dev/null; then

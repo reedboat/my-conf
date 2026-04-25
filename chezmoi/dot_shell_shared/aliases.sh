@@ -30,11 +30,15 @@ if command -v lazygit &>/dev/null; then
   alias g='lazygit'
 fi
 
-# ── screen / tmux ──
+# ── screen / tmux / zellij ──
 alias sl='screen -ls'
 alias sr='screen -D -R'
-if command -v tmux &>/dev/null; then
+if command -v zellij &>/dev/null; then
+  alias t='zellij'
+elif command -v tmux &>/dev/null; then
   alias t="tmux"
+fi
+if command -v tmux &>/dev/null; then
   alias ta="tmux attach -t"
   alias tad="tmux attach -d -t"
   alias tdc="tmux devcvm"

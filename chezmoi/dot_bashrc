@@ -24,10 +24,12 @@ fi
 [ -f ~/.env ] && source ~/.env
 [ -f ~/.env.local ] && source ~/.env.local
 
-. "$HOME/.atuin/bin/env"
-
-[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-eval "$(atuin init bash)"
+# ── atuin ──
+if [ -f "$HOME/.atuin/bin/env" ]; then
+  . "$HOME/.atuin/bin/env"
+  [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+  command -v atuin &>/dev/null && eval "$(atuin init bash)"
+fi
 
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"

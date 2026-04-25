@@ -7,6 +7,11 @@
 *.swo
 *~
 
+# zellij 仅 Linux 安装，macOS 跳过
+{{ if eq .chezmoi.os "darwin" }}
+.config/zellij
+{{ end }}
+
 # SSH 私钥（只管理 config，不管理密钥本身）
 private_dot_ssh/id_*
 private_dot_ssh/known_hosts
