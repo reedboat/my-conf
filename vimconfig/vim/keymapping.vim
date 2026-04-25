@@ -24,10 +24,13 @@ nnoremap <silent> <leader>bd :bdelete<cr>
 " }}}
 
 " Windows {{{
+" NeoVim 已经默认映射了 Ctrl-L 用于清屏，所以跳过它
+if !has('nvim')
+    nnoremap <unique> <c-l> <C-W><Right>
+endif
 nnoremap <unique> <c-k> <C-W><Up>
 nnoremap <unique> <c-j> <C-W><Down>
 nnoremap <unique> <c-h> <C-W><Left>
-nnoremap <unique> <c-l> <C-W><Right>
 nnoremap <unique> <leader>wl <C-W><Right>
 nnoremap <unique> <leader>wk <C-W><Up>
 nnoremap <unique> <leader>wj <C-W><Down>

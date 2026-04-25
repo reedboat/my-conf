@@ -18,7 +18,10 @@ set smartindent
 set hidden
 set encoding=utf8
 set fileencodings=utf-8,gb2312,ucs-bom,cp936,big5,latin1
-set termencoding=utf-8
+" termencoding 在 NeoVim 中不支持,已废弃
+if !has('nvim')
+    set termencoding=utf-8
+endif
 set laststatus=2
 set cmdheight=2
 "set acd
