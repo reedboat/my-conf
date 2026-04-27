@@ -56,5 +56,24 @@ install zopfli
 
 install homebrew/versions/lua52
 
+# Recommended modern CLI/TUI tools (see README for details)
+install atuin
+install bat
+install bottom
+install dust
+install eza
+install fd
+install fzf
+install git-delta
+install glow
+install hyperfine
+install jq
+install lazygit
+install ripgrep
+install tldr
+install yazi
+install zellij
+install zoxide
+
 # Remove outdated versions from the cellar
 cleanup
