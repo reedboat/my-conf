@@ -53,6 +53,8 @@ if test "$platform" = 'osx'
         alias cby 'codebuddy -y'
         alias cbr 'codebuddy -r'
         alias claude 'codebuddy'
+        alias cbc 'codebuddy'
+        alias cbcy 'codebuddy -y'
     end
 
     if type -q npx

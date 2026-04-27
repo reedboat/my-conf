@@ -56,6 +56,8 @@ alias ta="tmux attach"
 alias cby='codebuddy -y'
 alias cbr='codebuddy -r'
 alias claude=codebuddy
+alias cbc='codebuddy'
+alias cbcy='codebuddy -y'
 
 alias nskc='npx skills add -a codebuddy -g -y'
 alias nskf='npx skills find'

@@ -40,6 +40,8 @@ set -gx CLICOLOR 1
 alias cby 'codebuddy -y'
 alias cbr 'codebuddy -r'
 alias claude codebuddy
+alias cbc 'codebuddy'
+alias cbcy 'codebuddy -y'
 alias nskc 'npx skills add -a codebuddy -g -y'
 alias nskf 'npx skills find'
 alias pwtest 'npx playwright test'
