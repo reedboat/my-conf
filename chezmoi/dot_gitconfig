@@ -64,7 +64,9 @@
     insteadOf = https://git.woa.com/
     insteadOf = http://git.woa.com/
 [pager]
-	log = true
+	diff = delta
+	log = delta
+	show = delta
 [safe]
 	directory = *
 	directory = /Users/kufazhang
