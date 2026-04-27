@@ -1,8 +1,3 @@
--- DuckDB plugin configuration
-require("duckdb"):setup({
-  mode = "standard",
-  cache_size = 1000,
-  row_id = "dynamic",
-  minmax_column_width = 21,
-  column_fit_factor = 10.0
-})
+-- Plugin configuration placeholder
+-- duckdb plugin removed (not installed)
+

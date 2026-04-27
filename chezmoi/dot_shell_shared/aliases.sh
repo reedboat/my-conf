@@ -6,8 +6,16 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .4="cd ../../../.."
 
-# ── ls ──
-alias ll='ls -al'
+# ── ls / eza ──
+if command -v eza &>/dev/null; then
+  alias ls='eza --group-directories-first'
+  alias ll='eza -l --group-directories-first --git'
+  alias la='eza -la --group-directories-first --git'
+  alias lt='eza --tree --level=2 --group-directories-first'
+  alias lt3='eza --tree --level=3 --group-directories-first'
+else
+  alias ll='ls -al'
+fi
 
 # ── 编辑器：nvim 存在时覆盖 ──
 alias v='vim'
@@ -108,4 +116,60 @@ fi
 if command -v atuin &>/dev/null; then
   alias ats='atuin search'
   alias atsync='atuin sync'
+fi
+
+# ── bat ──
+if command -v bat &>/dev/null; then
+  alias cat='bat --paging=never'
+  alias less='bat --paging=always'
+fi
+
+# ── ripgrep ──
+if command -v rg &>/dev/null; then
+  alias grep='rg'
+fi
+
+# ── fd ──
+if command -v fd &>/dev/null; then
+  alias find='fd'
+fi
+
+# ── dust ──
+if command -v dust &>/dev/null; then
+  alias du='dust'
+fi
+
+# ── bottom ──
+if command -v btm &>/dev/null; then
+  alias top='btm'
+  alias htop='btm'
+fi
+
+# ── zoxide ──
+if command -v zoxide &>/dev/null; then
+  alias cd='z'
+  alias cdi='zi'   # interactive selection
+fi
+
+# ── glow ──
+if command -v glow &>/dev/null; then
+  alias md='glow'
+fi
+
+# ── delta (git pager) ──
+# configured via ~/.gitconfig, no alias needed
+
+# ── tldr ──
+if command -v tldr &>/dev/null; then
+  alias help='tldr'
+fi
+
+# ── yazi ──
+if command -v yazi &>/dev/null; then
+  alias y='yazi'
+fi
+
+# ── hyperfine ──
+if command -v hyperfine &>/dev/null; then
+  alias bench='hyperfine'
 fi
