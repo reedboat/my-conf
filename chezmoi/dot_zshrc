@@ -24,43 +24,13 @@ fi
 # ── 覆盖 oh-my-zsh git 插件的 gf 别名 ──
 unalias gf 2>/dev/null
 
-# ── fzf + fd + ripgrep ──
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# fzf 默认用 fd 查找文件，跟随隐藏文件但忽略 .git
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
-
-# fzf 默认预览窗口：用 bat 语法高亮
-export FZF_DEFAULT_OPTS="
-  --height 60%
-  --layout=reverse
-  --border=rounded
-  --info=inline
-  --multi
-  --marker='*'
-  --bind 'ctrl-/:toggle-preview'
-  --bind 'ctrl-y:execute-silent(echo {} | pbcopy)+abort'
-  --preview 'bat --color=always --style=numbers --line-range=:500 {} 2>/dev/null || echo {}'
-  --preview-window=right,50%,wrap
-  --color=fg:#c0c0c0,bg:#1e1e2e,hl:#bd93f9
-  --color=fg+:#f8f8f2,bg+:#282a36,hl+:#ff79c6
-  --color=info:#6272a4,prompt:#50fa7b,pointer:#ff79c6
-  --color=marker:#50fa7b,spinner:#8be9fd,header:#6272a4
-"
-
-# Ctrl-T 预览文件
-export FZF_CTRL_T_OPTS="
-  --preview 'bat --color=always --style=numbers --line-range=:500 {} 2>/dev/null || echo {}'
-  --preview-window=right,50%,wrap
-"
-
-# Alt-C 预览目录树
-export FZF_ALT_C_OPTS="
-  --preview 'eza -T --icons --level=2 --color=always {} 2>/dev/null || ls {}'
-  --preview-window=right,50%
-"
+# ── fzf ──
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+elif [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
+  source /usr/share/fzf/shell/key-bindings.zsh
+fi
+# fzf env vars (FZF_DEFAULT_COMMAND/OPTS etc.) set in shell_shared/env.sh
 
 # ── 本地环境变量（不提交 git）──
 [ -f ~/.env ] && source ~/.env
@@ -71,7 +41,9 @@ export FZF_ALT_C_OPTS="
 # ── atuin ──
 if [ -f "$HOME/.atuin/bin/env" ]; then
   . "$HOME/.atuin/bin/env"
-  command -v atuin &>/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
+fi
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
 # ── zoxide (cd replacement) ──

@@ -18,7 +18,12 @@ if [ -f /etc/bash_completion ] && [ -r /etc/bash_completion ]; then
 fi
 
 # ── fzf ──
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+elif [ -f /usr/share/fzf/shell/key-bindings.bash ]; then
+  source /usr/share/fzf/shell/key-bindings.bash
+fi
+[ -f /etc/bash_completion.d/fzf ] && source /etc/bash_completion.d/fzf
 
 # ── 本地环境变量（不提交 git）──
 [ -f ~/.env ] && source ~/.env
@@ -28,7 +33,9 @@ fi
 if [ -f "$HOME/.atuin/bin/env" ]; then
   . "$HOME/.atuin/bin/env"
   [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
-  command -v atuin &>/dev/null && eval "$(atuin init bash)"
+fi
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init bash)"
 fi
 
 if command -v zoxide &>/dev/null; then
