@@ -7,3 +7,7 @@ vimconfig/vim/doc/tags
 .netrwhist
 Powerline_distinguished_distinguished_compatible.cache
 .DS_Store
+
+# age 私钥，禁止提交
+key.txt
+*.age.key
