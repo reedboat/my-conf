@@ -8,39 +8,28 @@ update
 upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated)
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 install coreutils
 # Install some other useful utilities like `sponge`
 install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 install findutils
-# Install GNU `sed`, overwriting the built-in `sed`
-install gnu-sed --default-names
-# Install Bash 4
+# Install GNU `sed`
+install gnu-sed
+# Install Bash
 install bash
 
-# Install wget with IRI support
-install wget --enable-iri
-
-# Install RingoJS and Narwhal
-# Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
-install ringojs
-install narwhal
+# Install wget (IRI support is now built-in)
+install wget
 
 # Install more recent versions of some OS X tools
-install vim --override-system-vi
-install homebrew/dupes/grep
-install josegonzalez/homebrew-php/php55
-
-# This formula didn’t work well last time I tried it:
-#install homebrew/dupes/screen
+install vim
 
 # Install other useful binaries
 install ack
-#install exiv2
 install foremost
 install git
-install imagemagick --with-webp
+install imagemagick
 install lynx
 install nmap
 install node
@@ -48,13 +37,10 @@ install p7zip
 install pigz
 install pv
 install rename
-install rhino
 install sqlmap
 install tree
 install webkit2png
 install zopfli
-
-install homebrew/versions/lua52
 
 # Recommended modern CLI/TUI tools (see README for details)
 install atuin
