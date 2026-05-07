@@ -45,3 +45,18 @@ fi
 if command -v starship &>/dev/null; then
   eval "$(starship init bash)"
 fi
+
+# ── 清理 zellij 等工具残留的终端协议状态 ──
+_cleanup_terminal_protocols() {
+  # 禁用 Kitty Keyboard Protocol
+  printf '\e[<u' 2>/dev/null
+  # 禁用鼠标报告模式
+  printf '\e[?1000l\e[?1002l\e[?1003l\e[?1006l' 2>/dev/null
+  # 禁用焦点事件
+  printf '\e[?1004l' 2>/dev/null
+  # 禁用括号粘贴
+  printf '\e[?2004l' 2>/dev/null
+}
+
+# 追加到 PROMPT_COMMAND，保留 starship/atuin 等工具的设置
+PROMPT_COMMAND="_cleanup_terminal_protocols${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
