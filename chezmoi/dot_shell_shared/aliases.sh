@@ -165,9 +165,7 @@ if command -v tldr &>/dev/null; then
 fi
 
 # ── yazi ──
-if command -v yazi &>/dev/null; then
-  alias y='yazi'
-fi
+# (yazi 的 shell wrapper 函数在 functions.sh 中定义，支持退出时自动 cd)
 
 # ── hyperfine ──
 if command -v hyperfine &>/dev/null; then

@@ -38,6 +38,7 @@ fi
 
 # yazi shell wrapper（仅 yazi 存在时定义）
 if command -v yazi &>/dev/null; then
+  unalias y 2>/dev/null
   y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     command yazi "$@" --cwd-file="$tmp"

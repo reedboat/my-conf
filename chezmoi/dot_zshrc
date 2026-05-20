@@ -46,15 +46,15 @@ if command -v atuin &>/dev/null; then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-# ── zoxide (cd replacement) ──
-if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init zsh)"
-fi
-
 # ── Starship prompt ──
 if command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
+
+
+# Added by CodeBuddy CN
+export PATH="/Users/kufazhang/.codebuddy/bin:$PATH"
+export PATH="$PATH:$HOME/.ft"
 
 # ── 清理 zellij 等工具残留的终端协议状态 ──
 _cleanup_terminal_protocols() {
@@ -71,6 +71,7 @@ _cleanup_terminal_protocols() {
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _cleanup_terminal_protocols
 
-# Added by CodeBuddy CN
-export PATH="/Users/kufazhang/.codebuddy/bin:$PATH"
-export PATH="$PATH:$HOME/.ft"
+# ── zoxide (cd replacement) ──
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
