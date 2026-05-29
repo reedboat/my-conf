@@ -61,6 +61,7 @@ alias iconvgu='iconv -f gbk -t utf-8'
 alias iconvug='iconv -f utf-8 -t gbk'
 
 # ── 常用工具 ──
+alias rsh='if [ -n "${ZSH_VERSION:-}" ]; then source "$HOME/.zshrc"; elif [ -n "${BASH_VERSION:-}" ]; then source "$HOME/.bashrc"; fi'
 alias t100='tail -n 100'
 alias pong='ping -c 5 '
 alias mkdir="mkdir -pv"
